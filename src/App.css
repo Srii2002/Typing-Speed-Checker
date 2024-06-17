@@ -1,38 +1,132 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  width: 100%;
   min-height: 100vh;
+  padding: 20px 40px;
+  background: linear-gradient(135deg, #4a90e2 0%, #5a6abf 100%); /* Blue gradient background */
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+h1 {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: #ffffff;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #ffffff;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.tab {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.tab .timer, .tab .square {
+  min-width: 120px;
+  height: 120px;
+  background: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #111;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.tab .square {
+  border-radius: 12px;
+}
+
+.tab .timer:hover, .tab .square:hover {
+  transform: scale(1.1);
+  background: #f1f1f1;
+}
+
+.tab p {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+  margin: 0;
+}
+
+.content {
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.char {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #4a4a4a;
+  padding: 0 2px;
+  margin: 5px 2px 5px 0;
+  border-radius: 2px;
+  transition: color 0.3s, background 0.3s;
+}
+
+.char.active {
+  color: #ffcc00;
+  border-radius: 0;
+  border-bottom: 3px solid #ffcc00;
+  animation: cursorBlink 2s 1s infinite;
+}
+
+@keyframes cursorBlink {
+  0%, 49%, 100% {
+    border-bottom-color: #ffcc00;
   }
-  to {
-    transform: rotate(360deg);
+  50%, 99% {
+    border-bottom-color: transparent;
   }
+}
+
+.char.correct {
+  color: #2ecc71;
+  background: #eaffea;
+}
+
+.char.incorrect {
+  color: #e74c3c;
+  background: #ffeaea;
+}
+
+.restart {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin: 10px auto;
+  font-size: 2rem;
+  font-weight: 900;
+  color: #ffffff;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.3s;
+}
+
+.restart:hover {
+  color: #ffcc00;
 }
